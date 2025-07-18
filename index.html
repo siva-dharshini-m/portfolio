@@ -65,11 +65,11 @@
       border: none;
       width: 60px;
       height: 60px;
-      margin: 0 15px;
+      margin: 0 10px;
       border-radius: 50%;
       cursor: pointer;
       font-weight: bold;
-      font-size: 0.95em;
+      font-size: 0.85em;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -237,6 +237,103 @@
       font-size: 1em;
       margin-top: 2px;
     }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .project-card {
+      background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 28px 24px;
+      border: 2px solid #b3d9ff;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      border-color: #0059b3;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0059b3, #003366);
+      border-radius: 20px 20px 0 0;
+    }
+    .project-icon {
+      font-size: 2.8em;
+      color: #0059b3;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .project-card h3 {
+      color: #003366;
+      margin: 0 0 12px 0;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    .project-card p {
+      color: #555;
+      margin: 0 0 16px 0;
+      line-height: 1.6;
+      font-size: 1.02em;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .project-tag {
+      background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+      color: #003366;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: 600;
+      border: 1px solid #b3c6ff;
+    }
+    .project-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .project-btn {
+      background: linear-gradient(135deg, #0059b3 0%, #003366 100%);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 0.95em;
+    }
+    .project-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,89,179,0.3);
+    }
+    .project-btn.secondary {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: #003366;
+      border: 2px solid #b3c6ff;
+    }
+    .project-btn.secondary:hover {
+      background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+      box-shadow: 0 4px 12px rgba(0,51,102,0.2);
+    }
   </style>
 </head>
 <body>
@@ -249,6 +346,7 @@
   <nav>
     <button onclick="location.href='#education'" class="circle-btn">Education</button>
     <button onclick="location.href='#skills'" class="circle-btn">Skills</button>
+    <button onclick="location.href='#projects'" class="circle-btn">Projects</button>
     <button onclick="location.href='#interests'" class="circle-btn">Interests</button>
     <button onclick="location.href='#contact'" class="circle-btn">📧 Contact</button>
   </nav>
@@ -306,6 +404,51 @@
     </div>
   </section>
 
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <span class="project-icon">🗺️</span>
+        <h3>Navigation Using LeafletJS</h3>
+        <p>Interactive web-based navigation system built with LeafletJS mapping library. Features real-time location tracking, route planning, and customizable map layers for enhanced user experience.</p>
+        <div class="project-tags">
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">LeafletJS</span>
+          <span class="project-tag">HTML/CSS</span>
+          <span class="project-tag">Geolocation</span>
+        </div>
+        <div class="project-buttons">
+          <a href="NavigationUsingLeafletJs.html" class="project-btn" target="_blank">
+            🚀 View Live Demo
+          </a>
+          <button onclick="showProjectDetails('leaflet')" class="project-btn secondary">
+            📋 Details
+          </button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-icon">📊</span>
+        <h3>Live Sensor Dashboard</h3>
+        <p>Real-time sensor data visualization dashboard with interactive charts and monitoring capabilities. Displays live sensor readings with historical data analysis and alert systems.</p>
+        <div class="project-tags">
+          <span class="project-tag">IoT</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Charts.js</span>
+          <span class="project-tag">Real-time Data</span>
+        </div>
+        <div class="project-buttons">
+          <a href="liveSensordashboard.html" class="project-btn" target="_blank">
+            🚀 View Live Demo
+          </a>
+          <button onclick="showProjectDetails('sensor')" class="project-btn secondary">
+            📋 Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="interests">
     <h2>Interests</h2>
     <div class="interests-grid">
@@ -326,6 +469,74 @@
       </div>
     </div>
   </section>
+
+  <script>
+    function showProjectDetails(project) {
+      let details = '';
+      
+      if (project === 'leaflet') {
+        details = `
+Navigation Using LeafletJS Project Details:
+
+🎯 Objective: Create an interactive web mapping application for navigation purposes
+
+🔧 Technologies Used:
+• LeafletJS - Open-source JavaScript library for interactive maps
+• HTML5 - Structure and semantic markup
+• CSS3 - Styling and responsive design
+• JavaScript - Interactive functionality and API integration
+
+✨ Key Features:
+• Real-time location tracking using GPS
+• Interactive map with zoom and pan controls
+• Route planning and directions
+• Customizable map layers (satellite, terrain, street)
+• Marker placement and popup information
+• Mobile-responsive design
+
+📱 Applications:
+• Personal navigation tool
+• Educational mapping project
+• Foundation for location-based services
+        `;
+      } else if (project === 'sensor') {
+        details = `
+Live Sensor Dashboard Project Details:
+
+🎯 Objective: Build a real-time monitoring system for IoT sensor data
+
+🔧 Technologies Used:
+• HTML5 - Dashboard structure
+• CSS3 - Modern UI design
+• JavaScript - Data processing and visualization
+• Chart.js - Interactive charts and graphs
+• WebSocket/API - Real-time data communication
+
+✨ Key Features:
+• Live sensor data visualization
+• Interactive charts (line, bar, gauge)
+• Historical data analysis
+• Alert and notification system
+• Responsive dashboard design
+• Data export capabilities
+
+📊 Data Sources:
+• Temperature and humidity sensors
+• Environmental monitoring
+• IoT device integration
+• Real-time data streaming
+
+🚀 Use Cases:
+• Smart home monitoring
+• Environmental data tracking
+• Industrial IoT applications
+• Educational sensor projects
+        `;
+      }
+      
+      alert(details);
+    }
+  </script>
 
 </body>
 </html>
